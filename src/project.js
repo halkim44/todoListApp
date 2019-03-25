@@ -1,26 +1,31 @@
-import Todos from './todos';
+import todo from './todo';
+import Storage from "./storage";
 
-const Project = function(name) {
-    let obj = {},
-     _todolist = [],
-     _active = false;
+const Project = (function () {
 
-    obj.name = name;
-    obj.getTodolist = function() {
-        return _todolist;
-    };
-    obj.addTodo = function (title) {
-        _todolist.push(Todos(title));
+    const create = (projectTitle, id) => {
+        if (projectTitle) {
+            let newProject = {
+                id: id,
+                title: projectTitle,
+                isCurrentlyViewed: true,
+                todos: []
+            }
+
+            Storage.addData( "projects", id, newProject );
+        }
     }
-    obj.isActive = function () {
-        return _active;
+
+    const addTodo = function (currentProject, title, dueDate, description, todoId) {
+        currentProject.todos.push(todoId);
+        let newTodo = todo.create(title, dueDate, description);
+        newTodo.id = todoId;
+        Storage.addData( "todos", todoId, newTodo );
     }
-    obj.setAsActive = function () {
-        _active = true;
+
+    return {
+        create,
+        addTodo
     }
-    obj.setAsInactive = function () {
-        _active = false;
-    }
-    return obj;
-}
+})();
 export default Project

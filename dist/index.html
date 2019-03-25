@@ -4,54 +4,149 @@
 <head>
     <meta charset="utf-8">
     <title>Todo List app</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-        crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="bundle.css">
 </head>
 
-<body>
-    <header>
-        <div class="logo-container content-wrapper">
-            <span class="logo">
-                TODO-LIST
-            </span>
-        </div>
-    </header>
+<body class="mdc-typography">
+    <div id="app-container" class="mdc-elevation--z16">
 
-    <div class="app-container content-wrapper container">
-        <div class="row">
-            <div class="left-menu col-xs-4">
-                <div class="project-list-container">
-                    <div class="project-list-panel">
-                        <h2>Projects</h2>
-                        <a href="#" class="dropdown-btn"></a>
-                    </div>
-                    <div class="project-list dropdown-list">
-                        <ul>
-                        </ul>
-                        <div class="adding-tools-container">
-                            <input type="text" class="project-title-input">
-                            <button class="project-btn btn btn-primary">Add project</button>
+        <aside class="mdc-drawer">
+            <div class="mdc-drawer__header logo-container content-wrapper">
+                <h1 class="todolist-title mdc-typography--headline4">
+                    TODO-LIST
+                </h1>
+            </div>
+            <div class="todolist-drawer mdc-drawer__content">
+                <nav class="mdc-list project-list">
+
+                    <!-- project list here -->
+
+                </nav>
+
+                <div class="adding-tools">
+
+                    <div class="adding-tools__text-field mdc-text-field mdc-text-field--outlined">
+                        <input type="text" id="project-title-text-field" class="mdc-text-field__input project-title-input">
+                        <div class="mdc-notched-outline">
+                            <div class="mdc-notched-outline__leading"></div>
+                            <div class="mdc-notched-outline__notch">
+                                <label for="tf-outlined" class="mdc-floating-label">Project title</label>
+                            </div>
+                            <div class="mdc-notched-outline__trailing"></div>
                         </div>
                     </div>
+
+                    <div class="adding-tools__buttons">
+                        <button class="add-button add-button--projects mdc-button mdc-button--dense mdc-button--unelevated"
+                            data-event-for="projects-data" data-event-type="add-data">Add</button>
+                    </div>
                 </div>
+
             </div>
-            <div class="project-viewer-container h-100 d-inline-block col-xs-8">
-                <div class="project-header">
-                    <h1 class="project-title"></h1>
-                </div>
-                <div class="todo-list-viewer">
-                    <ul class="todolist-holder">
-                    </ul>
-                    <div class="adding-tools-container">
-                        <input type="text" class="todo-title-input">
-                        <button class="add-todo-btn btn btn-primary">Add todos</button>
+        </aside>
+
+        <div class="project-viewer">
+            <div class="project-viewer__header">
+                <h3 class="mdc-typography--headline5 project-viewer__header__title">Project title here</h3>
+            </div>
+
+            <div class="project-viewer__todolist">
+                <ul class="todolist-container mdc-list mdc-list--two-line">
+                    <!-- todo lists here -->
+
+                    <li class="todolist__list-item item mdc-list-item" tabindex="0">
+                        <div class="mdc-checkbox">
+                            <input type="checkbox" class="mdc-checkbox__native-control" id="checkbox-1" />
+                            <div class="mdc-checkbox__background">
+                                <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                                    <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59" />
+                                </svg>
+                                <div class="mdc-checkbox__mixedmark"></div>
+                            </div>
+                        </div>
+                        <span class="mdc-list-item__text">
+                            <span class="mdc-list-item__primary-text todolist--title">First-line text</span>
+                            <span class="mdc-list-item__secondary-text todolist--due-date">Second-line text</span>
+                        </span>
+                    </li>
+                </ul>
+                <div class="mdc-dialog"
+     role="alertdialog"
+     aria-modal="true"
+     aria-labelledby="my-dialog-title"
+     aria-describedby="my-dialog-content">
+  <div class="mdc-dialog__container">
+    <div class="mdc-dialog__surface">
+      <!-- Title cannot contain leading whitespace due to mdc-typography-baseline-top() -->
+      <h2 class="mdc-dialog__title" id="my-dialog-title"><!--
+     -->Dialog Title<!--
+   --></h2>
+      <div class="mdc-dialog__content" id="my-dialog-content">
+        Dialog body text goes here.
+      </div>
+      <footer class="mdc-dialog__actions">
+        <button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="no">
+          <span class="mdc-button__label">back</span>
+        </button>
+        <button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="yes">
+          <span  data-event-for="todo-data" class="mdc-button__label">completed</span>
+        </button>
+      </footer>
+    </div>
+  </div>
+  <div class="mdc-dialog__scrim"></div>
+</div>
+                <div class="add-todos--container todo-form--closed">
+                    <form class="todo-form">
+                        <div class="textfield--w60 textfield--float mdc-text-field mdc-text-field--outlined">
+                            <input type="text" class="mdc-text-field__input" name="title" required>
+                            <div class="mdc-notched-outline">
+                                <div class="mdc-notched-outline__leading"></div>
+                                <div class="mdc-notched-outline__notch">
+                                    <label for="tf-outlined" class="mdc-floating-label">Title</label>
+                                </div>
+                                <div class="mdc-notched-outline__trailing"></div>
+                            </div>
+                        </div>
+                        <div class="textfield--w30 textfield--float adding-tools__text-field mdc-text-field mdc-text-field--outlined">
+                            <input type="date" class="mdc-text-field__input" name="duedate">
+                            <div class="mdc-notched-outline">
+                                <div class="mdc-notched-outline__leading"></div>
+                                <div class="mdc-notched-outline__notch">
+                                    <label for="tf-outlined" class="mdc-floating-label">due date</label>
+                                </div>
+                                <div class="mdc-notched-outline__trailing"></div>
+                            </div>
+                        </div>
+                        <div class="mdc-text-field text-field mdc-text-field--fullwidth mdc-text-field--no-label mdc-text-field--textarea"><textarea
+                                class="mdc-text-field__input" name="description" ></textarea>
+                            <div class="mdc-notched-outline mdc-notched-outline--upgraded">
+                                <div class="mdc-notched-outline__leading"></div>
+                                <div class="mdc-notched-outline__notch"><label class="mdc-floating-label" for="text-field-fullwidth-textarea-helper">Description</label></div>
+                                <div class="mdc-notched-outline__trailing"></div>
+                            </div>
+                        </div>
+                        <div class="adding-todos-buttons-container">
+                            <button class="todo-form-button--cancel mdc-button mdc-button--dense" type="reset">
+                                cancel
+                            </button>
+                            <button class="todo-form-button--add mdc-button mdc-button--dense mdc-button--unelevated" type="submit">
+                                add
+                            </button>
+                        </div>
+                    </form>
+                    <div class="container-button--display-todo-form">
+                        <button class="button--display-todo-form mdc-button mdc-button--dense mdc-button--outlined" data-event-for="view-todo-form">+ Add
+                            Todo</button>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
-    <script src="main.js"></script>
+    <script src="bundle.js" asynch></script>
 </body>
 
 </html>

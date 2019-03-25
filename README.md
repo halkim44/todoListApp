@@ -3,6 +3,7 @@ an app that enable user to plan or manage their tasks easily and also create mul
 
 ## Tech/framework used
 - [Bootstrap](https://getbootstrap.com/)
+- [Material.io](https://material.io/)
 
 ## Features
 - create multiple Projects

@@ -1,0 +1,197 @@
+/* RESETS */
+html {
+    height: 100%;
+
+    body {
+        margin: 0;
+        height: 100%;
+        background: rgb(62, 64, 70);
+    }
+}
+
+
+@import "@material/button/mdc-button";
+@import "@material/drawer/mdc-drawer";
+@import "@material/list/mdc-list";
+@import "@material/textfield/mdc-text-field";
+@import "@material/typography/mdc-typography";
+@import "@material/elevation/mdc-elevation";
+@import "@material/checkbox/mdc-checkbox";
+@import "@material/dialog/mdc-dialog";
+
+
+#app-container {
+    width: 70%;
+    background: #fff;
+    height: 90%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    overflow: hidden;
+
+    span,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    a {
+        cursor: default;
+    }
+    a {
+        text-decoration: none;
+    }
+}
+
+.project-viewer {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 256px;
+
+    >* {
+        margin: 0 12px;
+    }
+
+    .project-viewer__header {
+        border-bottom: 1px solid rgba(0, 0, 0, .4);
+
+        h3 {
+            padding: 0 12px;
+        }
+    }
+
+    .project-viewer__todolist {
+        overflow: auto;
+        height: 78%;
+        border-bottom: 1px solid rgba(0, 0, 0, .4);
+        margin: 0;
+        padding: 0 12px;
+
+        .container-button--display-todo-form {
+            padding: 0 40px;
+        }
+
+    }
+}
+
+    .foo-button {
+        @include mdc-button-ink-color(teal);
+        @include mdc-states(teal);
+    }
+
+    .logo-container {
+        margin: 30px 0 50px;
+    }
+
+    .todolist-title {
+        text-align: center;
+        margin: 5px auto;
+    }
+
+    h2 {
+        margin: 0 12px;
+    }
+
+    .todolist-drawer>div:last-child {
+        padding: 0 8px;
+    }
+
+    .adding-tools {
+        margin: 12px 0;
+
+        .adding-tools__text-field {
+            width: 100%;
+            margin-bottom: 8px;
+        }
+
+        .adding-tools__buttons {
+            float: right;
+        }
+
+        &::after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+    }
+
+    .add-todos--container {
+        height: 190px;
+
+        .todo-form {
+            z-index: 2;
+            padding: 0 3px;
+
+            .mdc-text-field {
+                margin: 3px 0;
+            }
+
+            .textfield--float {
+                float: left;
+            }
+
+            .textfield--w60 {
+                width: 60%;
+            }
+
+            .textfield--w30 {
+                width: 39%;
+                margin-left: 1%;
+            }
+
+            .adding-todos-buttons-container {
+                display: flex;
+                justify-content: flex-end;
+
+                button:first-child {
+                    margin-right: 3px; // to give space between the button
+                }
+            }
+        }
+
+        .button--display-todo-form {
+            z-index: 0;
+            width: 100%;
+            height: 44px;
+            display: none;
+        }
+
+        &.todo-form--closed {
+            .todo-form {
+                height: 0;
+                overflow: hidden;
+            }
+
+            .button--display-todo-form {
+                display: block;
+            }
+        }
+    }
+
+    .todolist__list-item {
+        position: relative;
+
+        &:before {
+            content: 'description';
+            display: block;
+            height: 100%;
+            background: yellow;
+            width: 100%;
+        }
+        h2 {
+            margin: 0;
+        }
+        .mdc-checkbox {
+            margin-right: 18px;
+        }
+
+        .description-container {
+            position: absolute;
+            top: 200%;
+        }
+    }
